@@ -1,2 +1,2 @@
 ## TIVelo
-a tool for publish paper
+a tool to be published on Nature.
