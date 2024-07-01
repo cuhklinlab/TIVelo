@@ -5,7 +5,7 @@ with open("README.md", "r") as f:
 
 setup(
     name="tivelo",
-    version="0.0.3",
+    version="0.0.4",
     description="single cell velocity analysis",
     package_dir={"": "tivelo"},
     packages=find_packages(where="tivelo"),
@@ -17,10 +17,25 @@ setup(
     license="MIT",
     classifiers=[
         "License :: OSI Approved :: MIT License",
-        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.9",
         "Operating System :: OS Independent",
     ],
-    install_requires=["bson >= 0.5.10"],
+    install_requires=["bson >= 0.5.10",
+                        "numpy >= 1.21.0",
+                        "scipy >= 1.10.0", 
+                         "matplotlib >= 3.4.0",
+                        "pandas >= 2.0.0",
+                        "networkx >= 3.0.0",
+                        "scikit-learn >= 1.0.0",
+                        "scanpy >= 1.9.0",
+                        "tqdm >= 4.0.0",
+                        "torch >= 1.9.0",
+                        "scvelo >= 0.3.0",
+                        "numba >= 0.55.0",
+                        
+                        
+                          
+                      ],
     extras_require={
         "dev": ["pytest>=7.0", "twine>=4.0.2"],
     },
