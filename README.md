@@ -7,7 +7,7 @@ tivelo requires Python 3.8 or later. We recommend to use Miniconda.
 conda create -n tivelo python=3.9
 conda activate tivelo
 
-We have publised the tivelo package onto PyPI. 为了使用的简洁以及安装过程的稳定，we recommend you to install big packages separately before installing tivelo in the conda eniveriment.
+We have published the tivelo package on PyPI. To ensure a smooth and stable installation process, we recommend installing large dependencies separately before installing tivelo in a conda environment.
 
 ### pytorch
 
