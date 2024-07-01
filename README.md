@@ -24,9 +24,7 @@ conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvi
 
 #### Numba
 Install Numba:
-```bash
-conda install numba
-```
+
 To enable CUDA GPU support for Numba, install the latest NVIDIA graphics drivers for your platform (the open-source Nouveau drivers do not support CUDA). Then install the CUDA Toolkit package.
 
 For CUDA 12, install the following:
@@ -40,6 +38,11 @@ conda install -c conda-forge cudatoolkit "cuda-version>=11.2,<12.0" -y
 ```
 
 Note: You do not need to install the CUDA SDK from NVIDIA.
+
+Cpu version
+```bash
+conda install numba
+```
 
 #### Scanpy
 Install Scanpy along with additional dependencies:
