@@ -29,11 +29,11 @@ conda install -c conda-forge scanpy python-igraph leidenalg -y
 
 
 ## scVelo
-pip install -U scvelo -y
+pip install -U scvelo 
 Parts of scVelo (directed PAGA and Louvain modularity) require (optional):
-pip install igraph louvain -y
+pip install igraph louvain 
 Using fast neighbor search via hnswlib further requires (optional):
-pip install pybind11 hnswlib -y
+pip install pybind11 hnswlib 
 
 
 
