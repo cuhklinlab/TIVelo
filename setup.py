@@ -5,7 +5,7 @@ with open("README.md", "r") as f:
 
 setup(
     name="tivelo",
-    version="0.0.4",
+    version="0.0.5",
     description="single cell velocity analysis",
     package_dir={"": "tivelo"},
     packages=find_packages(where="tivelo"),
