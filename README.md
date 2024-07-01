@@ -4,9 +4,10 @@ a tool to be published on Nature.
 ## Installation
 tivelo requires Python 3.8 or later. We recommend to use Miniconda.
 
-conda create -n tivelo python=3.9
-
+```
+conda create -n tivelo python=3.9 -y
 conda activate tivelo
+```
 
 We have published the tivelo package on PyPI. To ensure a smooth and stable installation process, we recommend installing large dependencies separately before installing tivelo in a conda environment.
 
