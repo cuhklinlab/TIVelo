@@ -3,8 +3,8 @@
 # -- Project information
 
 project = 'tivelo'
-copyright = '2024, Jinzhao LI & Jishuai MIAO'
-author = 'Jinzhao LI & Jishuai MIAO'
+copyright = '2024, Ge Muyang'
+author = 'Ge Muyang'
 
 release = '0.1'
 version = '0.1.0'
