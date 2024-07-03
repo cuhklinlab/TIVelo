@@ -3,7 +3,7 @@ from .model import orient_score, visualize
 from tqdm import tqdm
 from joblib import Parallel, delayed
 import scanpy as sc
-from utils.velocity_genes import compute_velocity_genes
+from ..utils.velocity_genes import compute_velocity_genes
 import os
 
 

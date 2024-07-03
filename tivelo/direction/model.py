@@ -2,7 +2,7 @@ import numpy as np
 import scanpy as sc
 import matplotlib.pyplot as plt
 from .linear_tree import create_tree, create_forecast
-from utils.velocity_genes import compute_velocity_genes
+from ..utils.velocity_genes import compute_velocity_genes
 
 
 def get_slope(tree, data):
