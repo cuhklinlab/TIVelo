@@ -1,87 +1,78 @@
 # Installation
 
-Follow these steps to install the MultiGATE package in a dedicated Conda environment. Please ensure you have Conda installed on your system before proceeding with these instructions.
+TIVelo requires Python 3.8 or later. We recommend using Miniconda for managing the environment.
 
-```shell
-conda create -n MultiGATEenv  python=3.7 -y 
-conda activate MultiGATEenv
-conda install tensorflow-gpu=1.15.0 cudatoolkit=10.0 cudnn=7.6.5 -y
-conda install scikit-learn  pandas scanpy jupyterlab tqdm matplotlib conda-forge::networkx bioconda::pybedtools  conda-forge::louvain -y
-export CFLAGS="-std=c99"
-pip install rpy2
-pip install MultiGATE
+### Step 1: Create and Activate the Conda Environment
+First, create a new Conda environment with Python 3.9:
+```bash
+conda create -n tivelo python=3.9 -y
+conda activate tivelo
 ```
 
-> If you can install MultiGATE following the above command you can just goto other tutorials to learn more about MultiGATE and skip the following detailed instructions for installation.
+### Step 2: Install Dependencies
 
-## Detailed instructions
+We have published the TIVelo package on PyPI. To ensure a smooth and stable installation process, we recommend installing large dependencies separately before installing TIVelo in a Conda environment.
 
-### Installation Guide for MultiGATE Package
+#### PyTorch
+Install PyTorch along with torchvision, torchaudio, and CUDA support:
+```bash
+conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia -y
+```
 
-Follow these steps to install the MultiGATE package in a dedicated Conda environment. Please ensure you have Conda installed on your system before proceeding with these instructions.
+#### Numba
+Install Numba:
 
-1. **Create a Conda Environment**
-   Start by creating a new environment named `MultiGATEenv` with Python 3.7. This isolates the installation and avoids conflicts with existing packages.
+To enable CUDA GPU support for Numba, install the latest NVIDIA graphics drivers for your platform (the open-source Nouveau drivers do not support CUDA). Then install the CUDA Toolkit package.
 
-   ```bash
-   conda create -n MultiGATEenv python=3.7 -y
-   ```
+For CUDA 12, install the following:
+```bash
+conda install -c conda-forge cuda-nvcc cuda-nvrtc "cuda-version>=12.0" -y
+```
 
-2. **Activate the Environment**
-   Activate the newly created environment:
+For CUDA 11, install the following:
+```bash
+conda install -c conda-forge cudatoolkit "cuda-version>=11.2,<12.0" -y
+```
 
-   ```bash
-   conda activate MultiGATEenv
-   ```
+Note: You do not need to install the CUDA SDK from NVIDIA.
 
-3. **Install TensorFlow and CUDA Toolkit**
-   Install TensorFlow 1.15.0 along with the compatible CUDA toolkit and cuDNN library to enable GPU support. We strongly recommend you install the listed version of TensorFlow and CUDA toolkit and cudnn library.
+Cpu version
+```bash
+conda install numba
+```
 
-   ```bash
-   conda install tensorflow-gpu=1.15.0 cudatoolkit=10.0 cudnn=7.6.5 -y
-   ```
+#### Scanpy
+Install Scanpy along with additional dependencies:
+```bash
+conda install -c conda-forge scanpy python-igraph leidenalg -y
+```
 
-4. **Install Additional Dependencies**
-   Install the necessary Python packages including scikit-learn, pandas, scanpy for single-cell analysis, and other utilities.
+#### scVelo
+Install scVelo:
+```bash
+pip install -U scvelo
+```
 
-   ```bash
-   conda install scikit-learn pandas scanpy jupyterlab tqdm matplotlib -y
-   conda install -c conda-forge networkx louvain -y
-   conda install -c bioconda pybedtools -y
-   ```
+Optional dependencies for directed PAGA and Louvain modularity:
+```bash
+pip install igraph louvain
+```
 
-5. **Install RPy2**
-   RPy2 is required for integrating R with Python. Note the use of `export CFLAGS="-std=c99"` to ensure compatibility with the C99 standard.
+Optional dependencies for fast neighbor search via hnswlib:
+```bash
+pip install pybind11 hnswlib
+```
 
-   ```bash
-   export CFLAGS="-std=c99"
-   pip install rpy2
-   ```
+### Step 3: Install TIVelo
+Finally, install TIVelo:
+```bash
+pip install tivelo
+```
 
-6. **Install MultiGATE**
-   Finally, install the MultiGATE package using pip. 
+## JupyterLab
+To run the tutorials in a notebook locally, please install JupyterLab:
+```bash
+conda install jupyterlab -y
+```
 
-   ```bash
-   pip install MultiGATE
-   ```
-
-7. **Verify Installation**
-   After installation, it's a good practice to verify that all components are installed correctly. You can do this by running a simple import test in Python.
-
-   ```python
-   # Activate your Conda environment if not already activated
-   conda activate MultiGATEenv
-
-   # Test the installation
-   python -c "import MultiGATE; print('MultiGATE installed successfully')"
-   ```
-
-### Troubleshooting
-
-If you encounter any errors during the installation, consider the following tips:
-
-- Ensure that your Conda environment is properly activated before installing any packages.
-- Check that the CUDA toolkit and cuDNN library versions are compatible with TensorFlow 1.15.0.
-- If pip installation fails, verify your internet connection and ensure that your Python environment is correctly configured to install packages.
-
-By following these detailed steps, you can set up the MultiGATE package and prepare for running your analyses. This setup provides a robust environment for computational studies in genomics and bioinformatics.
+With these steps, TIVelo and its dependencies will be installed and ready for use.
