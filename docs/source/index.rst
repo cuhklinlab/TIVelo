@@ -1,8 +1,7 @@
-Welcome to MultiGATE's documentation!
+Welcome to tivelo's documentation!
 ===================================
 
-**MultiGATE** is a novel method that utilzes a two-level graph attention auto-encoder
-to integrate multi-modality and spatial information effectively.
+A Tool to be Published on Nature
 
 
 .. note::
@@ -30,5 +29,16 @@ tivelo Tutorials
    notebooks/notebooks/Erythroid
    notebooks/notebooks/Hindbrain
    notebooks/notebooks/Hindbrain2
+   notebooks/notebooks/HSPCs
+   notebooks/notebooks/HumanBrain
+   notebooks/notebooks/MouseBrain
+   notebooks/notebooks/MouseSkin
+   notebooks/notebooks/Organoid
+   notebooks/notebooks/Pancreas
+   notebooks/notebooks/Reprogramming
+   notebooks/notebooks/Retina
+   notebooks/notebooks/Reprogramming1
+   notebooks/notebooks/scNT
+   notebooks/notebooks/U2OS
 
    
