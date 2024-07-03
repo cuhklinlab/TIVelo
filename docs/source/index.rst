@@ -10,6 +10,12 @@ A Tool to be Published on Nature
 
 User Guide
 --------------------
+To run baseline, we need to install
+
+pip install --upgrade pip               
+pip install tensorflow==2.10.0                 
+pip install unitvelo==0.2.5.2  multivelo==0.1.3  velovi==0.3.1
+
 
 .. toctree::
    :maxdepth: 2
@@ -37,7 +43,7 @@ tivelo Tutorials
    notebooks/notebooks/Pancreas
    notebooks/notebooks/Reprogramming
    notebooks/notebooks/Retina
-   notebooks/notebooks/Reprogramming1
+   notebooks/notebooks/RPE1
    notebooks/notebooks/scNT
    notebooks/notebooks/U2OS
 
