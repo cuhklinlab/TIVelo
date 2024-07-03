@@ -1,1 +1,1 @@
-from main import tivelo
+from .main import tivelo

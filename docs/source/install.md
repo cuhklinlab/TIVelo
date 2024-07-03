@@ -50,7 +50,7 @@ conda install -c conda-forge scanpy python-igraph leidenalg -y
 #### scVelo
 Install scVelo:
 ```bash
-pip install -U scvelo
+pip install  scvelo==0.3.1
 ```
 
 Optional dependencies for directed PAGA and Louvain modularity:
