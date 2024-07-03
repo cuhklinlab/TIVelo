@@ -1,14 +1,16 @@
 from setuptools import find_packages, setup
 
+
+
 with open("README.md", "r") as f:
     long_description = f.read()
 
 setup(
     name="tivelo",
-    version="0.0.5",
+    version="0.0.7",
     description="single cell velocity analysis",
     package_dir={"": "tivelo"},
-    packages=find_packages(where="tivelo"),
+    packages=find_packages(include=['tivelo', 'tivelo.*']),
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/aqlkzf/tivelo",
@@ -32,14 +34,12 @@ setup(
                         "scanpy >= 1.9.0",
                         "tqdm >= 4.0.0",
                         "torch >= 1.9.0",
-                        "scvelo >= 0.3.0",
+                        "scvelo == 0.3.1",
                         "numba >= 0.55.0",
-                        
-                        
-                          
                       ],
     extras_require={
         "dev": ["pytest>=7.0", "twine>=4.0.2"],
     },
     python_requires=">=3.9",
 )
+
