@@ -30,21 +30,29 @@ tivelo Tutorials
 .. toctree::
    :maxdepth: 2
    
+   Commonly-used RNA velocity datasets
+   notebooks/notebooks/Pancreas
    notebooks/notebooks/DentateGyrus
    notebooks/notebooks/DentateGyrus2
    notebooks/notebooks/Erythroid
    notebooks/notebooks/Hindbrain
+   notebooks/notebooks/Reprogramming
+   notebooks/notebooks/Organoid
+   notebooks/notebooks/Retina
+   notebooks/notebooks/scNT
    notebooks/notebooks/Hindbrain2
+
+
+   Datasets with scATAC-seq
    notebooks/notebooks/HSPCs
    notebooks/notebooks/HumanBrain
    notebooks/notebooks/MouseBrain
    notebooks/notebooks/MouseSkin
-   notebooks/notebooks/Organoid
-   notebooks/notebooks/Pancreas
-   notebooks/notebooks/Reprogramming
-   notebooks/notebooks/Retina
-   notebooks/notebooks/RPE1
-   notebooks/notebooks/scNT
+
+
+
+   FUCCI datasets
    notebooks/notebooks/U2OS
+   notebooks/notebooks/RPE1
 
    
