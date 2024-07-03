@@ -4,7 +4,7 @@ import torch.optim as optim
 from torch.utils.data import BatchSampler, RandomSampler
 from tqdm import tqdm
 import numpy as np
-from utils.velocity_genes import compute_velocity_genes
+from ..utils.velocity_genes import compute_velocity_genes
 
 
 class model_velo(object):
