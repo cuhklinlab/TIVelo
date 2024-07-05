@@ -46,15 +46,23 @@ Commonly-used RNA velocity datasets
    notebooks/notebooks/Hindbrain2
 
 
-   Datasets with scATAC-seq
+Datasets with scATAC-seq
+
+
+.. toctree::
+   :maxdepth: 2
    notebooks/notebooks/HSPCs
    notebooks/notebooks/HumanBrain
    notebooks/notebooks/MouseBrain
    notebooks/notebooks/MouseSkin
 
 
+FUCCI datasets
 
-   FUCCI datasets
+
+.. toctree::
+   :maxdepth: 2
+
    notebooks/notebooks/U2OS
    notebooks/notebooks/RPE1
 
