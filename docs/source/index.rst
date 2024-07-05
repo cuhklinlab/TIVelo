@@ -28,10 +28,12 @@ pip install unitvelo==0.2.5.2  multivelo==0.1.3  velovi==0.3.1
 tivelo Tutorials
 -----------------------
 
+Commonly-used RNA velocity datasets
+
 .. toctree::
    :maxdepth: 2
    
-   Commonly-used RNA velocity datasets
+
    notebooks/notebooks/Pancreas
    notebooks/notebooks/DentateGyrus
    notebooks/notebooks/DentateGyrus2
