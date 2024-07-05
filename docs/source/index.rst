@@ -12,10 +12,11 @@ User Guide
 --------------------
 To run baseline, we need to install
 
+```bash
 pip install --upgrade pip               
 pip install tensorflow==2.10.0                 
 pip install unitvelo==0.2.5.2  multivelo==0.1.3  velovi==0.3.1
-
+```
 
 .. toctree::
    :maxdepth: 2
