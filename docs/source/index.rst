@@ -29,7 +29,7 @@ tivelo Tutorials
 -----------------------
 
 Commonly-used RNA velocity datasets
-
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. toctree::
    :maxdepth: 2
    
@@ -47,7 +47,7 @@ Commonly-used RNA velocity datasets
 
 
 Datasets with scATAC-seq
-
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. toctree::
    :maxdepth: 2
@@ -58,7 +58,7 @@ Datasets with scATAC-seq
 
 
 FUCCI datasets
-
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. toctree::
    :maxdepth: 2
