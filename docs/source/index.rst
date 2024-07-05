@@ -29,7 +29,7 @@ Commonly-used RNA velocity datasets
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    notebooks/notebooks/Pancreas
    notebooks/notebooks/DentateGyrus
@@ -46,7 +46,7 @@ Datasets with scATAC-seq
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    notebooks/notebooks/HSPCs
    notebooks/notebooks/HumanBrain
@@ -57,7 +57,7 @@ FUCCI datasets
 ~~~~~~~~~~~~~~
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    notebooks/notebooks/U2OS
    notebooks/notebooks/RPE1
