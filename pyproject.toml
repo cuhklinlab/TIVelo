@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tivelo"
+version = "0.0.10"
+description = "single cell velocity analysis"
+readme = { file = "README.md", content-type = "text/markdown" }
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+    { name = "Muyang GE", email = "muyangge@link.cuhk.edu.hk" }
+]
+classifiers = [
+    "License :: OSI Approved :: BSD License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Operating System :: OS Independent"
+]
+dependencies = [
+    "bson>=0.5.10",
+    "numpy>=1.21.0",
+    "scipy>=1.10.0",
+    "matplotlib>=3.4.0",
+    "pandas>=2.0.0",
+    "networkx>=3.0.0",
+    "scikit-learn>=1.0.0",
+    "scanpy>=1.9.0",
+    "tqdm>=4.0.0",
+    "torch>=1.9.0",
+    "scvelo==0.3.1",
+    "numba>=0.55.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "twine>=4.0.2"
+]
+
+[tool.setuptools.packages.find]
+include = ["tivelo", "tivelo.*"]
