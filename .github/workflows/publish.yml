@@ -29,6 +29,14 @@ jobs:
           VERSION=$(echo ${{ github.event.release.tag_name }} | sed 's/^v//')
           echo "Setting version to $VERSION"
           sed -i "s/version = \".*\"/version = \"$VERSION\"/" pyproject.toml
+          cat pyproject.toml #  To verify the version update
+      - name: Commit version update
+          run: |
+            git config --global user.name 'github-actions'
+            git config --global user.email 'github-actions@github.com'
+            git add pyproject.toml
+            git commit -m "Update version to $VERSION"
+            git push
       - name: Build package
         run: |
           python -m build       # Could also be  python setup.py sdist bdist_wheel
