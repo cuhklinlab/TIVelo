@@ -25,15 +25,6 @@ To run baseline, we need to install::
 tivelo Tutorials
 ----------------
 
-test
-~~~~
-
-.. toctree::
-   :maxdepth: 1
-
-   notes/bayePrims_ana_agr2_high-_516.html
-
-
 
 
 Commonly-used RNA velocity datasets
