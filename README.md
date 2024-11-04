@@ -1,6 +1,6 @@
 ## TIVelo: RNA Velocity estimation utilizing trajectory inference at the cell cluster level
 
-![Workflow](docs/fig/workflow_1.pdf)
+![Workflow](docs/fig/workflow_1.png)
 
 
 
