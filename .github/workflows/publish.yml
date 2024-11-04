@@ -15,7 +15,11 @@ jobs:
       id-token: write
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout main branch
+        uses: actions/checkout@v4
+        with:
+          ref: main            # Checkout the main branch
+          fetch-depth: 0       # Fetch all history for pushing commits
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -36,7 +40,7 @@ jobs:
             git config --global user.email 'github-actions@github.com'
             git add pyproject.toml
             git commit -m "Update version to $VERSION"
-            git push
+            git push origin main
       - name: Build package
         run: |
           python -m build       # Could also be  python setup.py sdist bdist_wheel
