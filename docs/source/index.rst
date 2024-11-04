@@ -1,7 +1,7 @@
 Welcome to TIVelo's documentation!
 ==================================
 
-.. figure:: ../fig/workflow_1.pdf
+.. figure:: ../fig/workflow_1.png
    :align: center
 
    Workflow of TIVelo
