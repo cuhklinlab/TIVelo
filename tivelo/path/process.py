@@ -1,7 +1,6 @@
 import numpy as np
 import scanpy as sc
 import matplotlib.pyplot as plt
-import networkx as nx
 from .start_node import get_start_node
 from .prune import graph_prune
 from .main_path import get_path, visualize_path

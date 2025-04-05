@@ -1,10 +1,9 @@
 import numpy as np
 from .model import orient_score, visualize
-from tqdm import tqdm
 from joblib import Parallel, delayed
 import scanpy as sc
 from ..utils.velocity_genes import compute_velocity_genes
-import os
+
 
 
 def recover_direction(adata, order_idx, step=1, vis_idx=None):

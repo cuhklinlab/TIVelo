@@ -1,24 +1,23 @@
 import scanpy as sc
 import pandas as pd
 import numpy as np
+
+import sys
+sys.path.append("..")
 from tivelo.main import tivelo
 
+
 if __name__ == '__main__':
-    frame_path = "D:/cuhk/project/velocity/dataset/atac/data_frame.csv"
-    data_frame = pd.read_csv(frame_path, index_col=0)
-
     data_name = "HSPCs"
-    rna_path = data_frame.loc[data_name]["rna"]
-    atac_path = data_frame.loc[data_name]["atac"]
-    group_key = data_frame.loc[data_name]["group_key"]
-    emb_key = data_frame.loc[data_name]["emb_key"]
+    rna_path = "/lustre/project/Stat/s1155184322/datasets/velocity/multi-omics/3423-MV-2_adata_postpro.h5ad"
+    atac_path = "/lustre/project/Stat/s1155184322/datasets/velocity/multi-omics/3423-MV-2_adata_atac_postpro.h5ad"
+    adata_rna = sc.read(rna_path)
+    adata_atac = sc.read(atac_path)
 
-    adata_rna = sc.read_h5ad(rna_path)
-    adata_atac = sc.read_h5ad(atac_path)
-
-    edge_path = "D:/cuhk/project/velocity/dataset/atac/cluster_edges.npy"
-    edge_dict = np.load(edge_path, allow_pickle=True).item()
-    cluster_edges = edge_dict[data_name]
+    group_key = "leiden"
+    emb_key = "X_umap"
+    cluster_edges = [("HSC", "MPP"), ("MPP", "LMPP"),  ("LMPP", "GMP"), ("HSC", "MEP"), ("MEP", "Erythrocyte"),
+                    ("MEP", "Prog MK"), ("Prog MK", "Platele")]
 
     # step 2 parameters
     tree_folder = "results"
@@ -50,7 +49,7 @@ if __name__ == '__main__':
     adata = tivelo(adata_rna, group_key, emb_key,
                    data_name=data_name,
                    save_folder=save_folder,
-                   njobs=-1,
+                   njobs=32,
                    t1=t1,
                    t2=t2,
                    adjust_DTI=adjust_DTI,

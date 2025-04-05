@@ -10,7 +10,7 @@ from sklearn.neighbors import NearestNeighbors
 import unitvelo as utv
 import multivelo as mv
 from velovi import preprocess_data, VELOVI
-from utils.metrics import inner_cluster_coh, cross_boundary_correctness, cross_boundary_scvelo_probs, \
+from tivelo.utils.metrics import inner_cluster_coh, cross_boundary_correctness, cross_boundary_scvelo_probs, \
     cross_boundary_correctness2, inner_cluster_coh2, velo_coh
 
 
@@ -149,13 +149,13 @@ def run_velovi(adata):
     vae.train(max_epochs=500)
 
     add_velovi_outputs_to_adata(adata, vae)
-    scv.tl.velocity_graph(adata, n_jobs=-1)
+    scv.tl.velocity_graph(adata, n_jobs=32)
     scv.tl.velocity_embedding(adata)
     return adata
 
 
 def run_baseline(adata, model, data_name, group_key, emb_key, cluster_edges=None, adata_atac=None, save_folder="results",
-                 show_fig=False, measure_performance=True):
+                 show_fig=False, measure_performance=True, unitvelo_mode="1"):
     if model == "celldancer":
         velocity_key = "velocity_S"
     elif model == "multivelo":
@@ -196,18 +196,20 @@ def run_baseline(adata, model, data_name, group_key, emb_key, cluster_edges=None
     except FileNotFoundError:
         if model == "scvelo":
             adata_ = scv.tl.velocity(adata, mode='stochastic', copy=True, vkey=velocity_key)
-            scv.tl.velocity_graph(adata_, vkey=velocity_key, n_jobs=-1)
+            scv.tl.velocity_graph(adata_, vkey=velocity_key, n_jobs=32)
             scv.tl.velocity_embedding(adata_, vkey=velocity_key)
             adata_.write_h5ad(result_path + "{}.h5ad".format(model))
         elif model == "scvelo2":
-            scv.tl.recover_dynamics(adata, n_jobs=-1)
+            scv.tl.recover_dynamics(adata, n_jobs=32)
             adata_ = scv.tl.velocity(adata, mode='dynamical', copy=True, vkey=velocity_key)
-            scv.tl.velocity_graph(adata_, vkey=velocity_key, n_jobs=-1)
+            scv.tl.velocity_graph(adata_, vkey=velocity_key, n_jobs=32)
             scv.tl.velocity_embedding(adata_, vkey=velocity_key)
             adata_.write_h5ad(result_path + "{}.h5ad".format(model))
         elif model == "unitvelo":
             velo_config = utv.config.Configuration()
             velo_config.MAX_ITER = 10000
+            if unitvelo_mode == "2":
+                velo_config.FIT_OPTION = '2'
             adata_ = utv.run_model(adata, group_key, config_file=velo_config)
             adata_.write_h5ad(result_path + "{}.h5ad".format(model))
         elif model == "velovi":
@@ -220,7 +222,7 @@ def run_baseline(adata, model, data_name, group_key, emb_key, cluster_edges=None
             except FileNotFoundError:
                 raise FileNotFoundError("No celldancer output file found at {}".format(save_folder))
             adata_ = df_to_adata(adata, cellDancer_df, group_key, emb_key)
-            scv.tl.velocity_graph(adata_, vkey=velocity_key, xkey="Ms", n_jobs=-1)
+            scv.tl.velocity_graph(adata_, vkey=velocity_key, xkey="Ms", n_jobs=32)
             adata_.write_h5ad(result_path + "{}.h5ad".format(model))
         elif model == "multivelo" and adata_atac is not None:
             adata_ = mv.recover_dynamics_chrom(adata, adata_atac, max_iter=5, init_mode="invert", parallel=False,
@@ -242,11 +244,14 @@ def run_baseline(adata, model, data_name, group_key, emb_key, cluster_edges=None
         plt.show()
     plt.close()
 
-    if model == "scvelo2" or model == "unitvelo":
-        adata_ = adata_[:, adata_.var.loc[adata_.var['{}_genes'.format(velocity_key)] == True].index]
+    # if model == "scvelo2" or model == "unitvelo":
+    #     adata_ = adata_[:, adata_.var.loc[adata_.var['{}_genes'.format(velocity_key)] == True].index]
 
     # measure performance
     if measure_performance:
+        if model == "scvelo2" or model == "unitvelo":
+            adata_ = adata_[:, adata_.var.loc[adata_.var['{}_genes'.format(velocity_key)] == True].index]
+        
         if cluster_edges is not None:
             _, cbdir = cross_boundary_correctness(adata_, cluster_key=group_key, velocity_key=velocity_key,
                                                   cluster_edges=cluster_edges, x_emb=emb_key)

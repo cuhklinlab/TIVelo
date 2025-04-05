@@ -1,13 +1,16 @@
 import numpy as np
 import scanpy as sc
 import pandas as pd
+
+import sys
+sys.path.append("..")
 from tivelo.main import tivelo
 
 
 if __name__ == '__main__':
     # data_name = "rpe1"
     data_name = "u2os"
-    data_path = "D:/cuhk/project/velocity/dataset/fucci/adata_fucci_{}_processed.h5ad".format(data_name)
+    data_path = "/lustre/project/Stat/s1155184322/datasets/velocity/FUCCI/adata_fucci_u2os_processed.h5ad"
     adata = sc.read_h5ad(data_path)
 
     # velocity

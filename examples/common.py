@@ -1,24 +1,21 @@
 import numpy as np
 import scanpy as sc
 import pandas as pd
+
+import sys
+sys.path.append("..")
 from tivelo.main import tivelo
 
 
 if __name__ == '__main__':
     # common setting: batch_size=None, n_epochs=200, alpha_2=0.1, only_s=True
-
-    frame_path = "D:/cuhk/project/velocity/dataset/scRNA-seq/data_frame.csv"
-    edge_path = "D:/cuhk/project/velocity/dataset/scRNA-seq/cluster_edges.npy"
-
-    data_frame = pd.read_csv(frame_path, index_col=0)
-    edge_dict = np.load(edge_path, allow_pickle=True).item()
-
+    
     data_name = "retina"
-    data_path = data_frame.loc[data_name]["path"]
-    adata = sc.read_h5ad(data_path)
-    group_key = data_frame.loc[data_name]["group_key"]
-    emb_key = data_frame.loc[data_name]["emb_key"]
-    cluster_edges = edge_dict[data_name]
+    data_path = "/lustre/project/Stat/s1155184322/datasets/velocity/retina_processed.h5ad"
+    adata = sc.read(data_path)
+    group_key = "Annotation"
+    emb_key = "X_umap"
+    cluster_edges = [('Progenitor', 'Neuroblast'), ('Neuroblast', 'PR'), ('Neuroblast', 'AC/HC'), ('Neuroblast', 'RGC')]
 
     # parameters in step 1&2
     # pancreas: t2=0.9; hindbrain2: t2=2.0; dentategyrus2: 0.39
@@ -45,7 +42,7 @@ if __name__ == '__main__':
     adata = tivelo(adata, group_key, emb_key,
                    data_name=data_name,
                    save_folder="results",
-                   njobs=-1,
+                   njobs=32,
                    t1=t1,
                    t2=t2,
                    adjust_DTI=adjust_DTI,
