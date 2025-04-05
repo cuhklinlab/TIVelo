@@ -32,7 +32,7 @@ We have published the TIVelo package on PyPI. To ensure a smooth and stable inst
 #### PyTorch
 Install PyTorch along with torchvision, torchaudio, and CUDA support:
 ```bash
-conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia -y
+conda install pytorch==2.5.0 torchvision==0.20.0 torchaudio==2.5.0 pytorch-cuda=12.1 -c pytorch -c nvidia -y
 ```
 
 #### Numba
