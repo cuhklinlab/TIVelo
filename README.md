@@ -1,6 +1,6 @@
 ## TIVelo: RNA velocity estimation leveraging cluster-level trajectory inference
 
-![Workflow](docs/fig/workflow_compressed.png)
+![workflow_compressed](https://github.com/aqlkzf/typoraimg/raw/main//imgmac/workflow_compressed.png)
 
 
 
