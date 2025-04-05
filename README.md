@@ -6,13 +6,17 @@
 
 RNA velocity inference is a valuable tool for understanding cell development, differentiation, and disease progression. However, existing RNA velocity inference methods typically rely on explicit assumptions of ordinary differential equations (ODE), which prohibits them to capture complex transcriptome expression patterns. In this study, we introduce TIVelo, a novel RNA velocity estimation approach that first determines the velocity direction at the cell cluster level based on trajectory inference, before estimating velocity for individual cells. TIVelo calculates an orientation score to infer the direction at the cluster level without an explicit ODE assumption, which effectively captures complex transcriptional patterns, avoiding potential inconsistencies in velocity estimation for genes that do not follow the simple ODE assumption. We validated the effectiveness of TIVelo by its application to 16 real datasets and the comparison with five benchmarking methods.
 
-## Usage 
-For detailed instructions, please refer to our [Tutorials](https://tivelo.readthedocs.io/en/latest/).
+## Demo
+The instructions for running TIVelo for different kinds of datasets can be found in [Examples](https://github.com/cuhklinlab/TIVelo/tree/main/examples).
+
+## Reproducibility 
+To reproduce our results, please refer to the folder [Notebooks](https://github.com/cuhklinlab/TIVelo/tree/main/docs/source/notebooks/notebooks) or our [Tutorials](https://tivelo.readthedocs.io/en/latest/).
+
 
 
 ## Installation
 
-TIVelo requires Python 3.8 or later. We recommend using Miniconda for managing the environment.
+TIVelo requires Python 3.8 or later. We recommend using Miniconda for managing the environment. The typical time for installing our package is 3 minutes.
 
 ### Step 1: Create and Activate the Conda Environment
 First, create a new Conda environment with Python 3.9:
