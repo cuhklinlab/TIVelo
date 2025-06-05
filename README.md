@@ -12,8 +12,8 @@ The instructions for running TIVelo for different kinds of datasets can be found
 ## Reproducibility 
 To reproduce our results, please refer to the folder [notebooks](https://github.com/cuhklinlab/TIVelo/tree/main/docs/source/notebooks/notebooks) or our [tutorial website](https://tivelo.readthedocs.io/en/latest/).
 
-## Data Availability 
-All datasets used in this research are openly accessible to the public. To achieve the datasets used in this research, please refer to the [Figshare](https://figshare.com/s/d95ebd3f89e991047c07) page. All the datasets in Figshare are the version after scVelo standard preprocessing [pipeline](https://scvelo.readthedocs.io/en/stable/VelocityBasics.html).
+## Datasets 
+All datasets used in this research are openly accessible to the public. To achieve the datasets used in this research, please refer to our [Figshare](https://figshare.com/s/d95ebd3f89e991047c07) page. The datasets in Figshare are the version after scVelo standard preprocessing [pipeline](https://scvelo.readthedocs.io/en/stable/VelocityBasics.html).
 
 ## Installation
 
