@@ -94,3 +94,8 @@ conda install jupyterlab -y
 
 With these steps, TIVelo and its dependencies will be installed and ready for use.
 
+## Cite this article
+Ge, M., Miao, J., Qi, J. et al. TIVelo: RNA velocity estimation leveraging cluster-level trajectory inference. Nat Commun 16, 6258 (2025). https://doi.org/10.1038/s41467-025-61628-x
+
+
+
